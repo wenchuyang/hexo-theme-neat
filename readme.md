@@ -29,7 +29,7 @@ _config.yml文件中先写上`menu:`这样不会报错。
 ```
 ## 使用你的主题
 在hexo-generator/_config.yml文件中把`theme: xxx`改成`theme: hexo-theme-neat`
-此时本地执行`hexo server`可以本地预览你的主题，当然，里面什么都没有。
+此时在你的hexo-generator目录下执行`hexo server`可以本地预览你的主题，当然，里面什么都没有。
 ## 建设主题的雏形
 layout.ejs
 ```
@@ -65,5 +65,28 @@ header.ejs
 </header>
 ```
 你大可以把aside、footer都这样写上。最后本地预览效果。
-
+现在，我们有了一个网站的雏形，但是里面什么内容都没有。
+## 添加动态内容
+header和aside里放的都是导航内容，并且导航内容相同，我需要把它们设置为变量。
+_config.yml
+```
+nav:
+- 时间轴: /
+- 写作: /
+- 计算机: /
+- 书单影单: /
+- 资料库: /
+- 关于我: /
+```
+header.ejs
+```
+<% theme.nav.forEach(r => { %>
+    <a href=<%=Object.values(r)%> >
+        <%= Object.keys(r) %>
+    </a>
+<% }) %>
+```
+这样我们通过循环theme.nav，可以得到里边的key和value。
+现在网站看起来是这个样子的
+![__35W0_MCX4__Q_99C5R9SY.png](https://i.loli.net/2021/01/05/VZOidbwEm9cPDjW.png)
 

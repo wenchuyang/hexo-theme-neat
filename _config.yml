@@ -1,11 +1,13 @@
 menu:
 
 # nav
-# nav:
-# - HOME: /
-# - ABOUT: /about
-# - GITHUB: /
-# - CSDN: /
+nav:
+- 时间轴: /
+- 写作: /
+- 计算机: /
+- 书单影单: /
+- 资料库: /
+- 关于我: /
 
 # info
 # title: 夜落初阳

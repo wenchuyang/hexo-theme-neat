@@ -1,3 +1,9 @@
-<header>
-    This is header
+<header class="neat-header">
+    <nav>
+        <% theme.nav.forEach(r => { %>
+            <a href=<%=Object.values(r)%> >
+                <%= Object.keys(r) %>
+            </a>
+        <% }) %>
+    </nav>
 </header>
