@@ -1,3 +1,7 @@
-<main>
-    here is main
+<main class="neat-main">
+    <% site.posts.each(function(post) { %>
+        <h1><%= post.title %></h1>
+        <%- partial('../post', {post: post}) %>
+    <% }); %>
 </main>
+

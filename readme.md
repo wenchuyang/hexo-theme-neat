@@ -90,3 +90,20 @@ header.ejs
 现在网站看起来是这个样子的
 ![__35W0_MCX4__Q_99C5R9SY.png](https://i.loli.net/2021/01/05/VZOidbwEm9cPDjW.png)
 
+## 获取你的博客
+辅助函数参考[官方文档](https://hexo.io/zh-cn/docs/helpers)
+_partial/main.ejs
+```
+<% site.posts.each(function(post) { %>
+    <h1><%= post.title %></h1>
+    <%- partial('../post', {post: post}) %>
+<% }); %>
+```
+post.ejs
+```
+<div class="">
+    this is post
+    <%= post.title %>
+</div>
+```
+`site.posts`用来获取你项目中全部的博客内容。
