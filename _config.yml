@@ -9,6 +9,13 @@ nav:
 - 资料库: /
 - 关于我: /
 
+# 分页文字
+nav_text:
+  page_prev: 上一页
+  page_next: 下一页
+  post_prev: 上一篇
+  post_next: 下一篇
+
 # info
 # title: 夜落初阳
 # avatar: /img/assets/logo.png

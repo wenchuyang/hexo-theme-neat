@@ -103,7 +103,59 @@ post.ejs
 ```
 <div class="">
     this is post
-    <%= post.title %>
+    <%- post.title %>
+    <%- post.content %>
 </div>
 ```
 `site.posts`用来获取你项目中全部的博客内容。
+现在在main模块里获取到了你所有博客的内容，开始优化。
+
+## 归档，建立你的时间轴
+### 获取文章的时间，年月日。
+```
+page.posts.forEach(function(post){
+    var year = post.date.year()
+    var date = date(post.date, 'MM/DD')
+    var title = post.title
+})
+```
+使用如上代码可以得到你需要的时间轴页面的展示信息，下边这段代码是分页信息。
+```
+<% if (page.total > 1){ %>
+    <nav class="page-nav">
+        <%
+            var prev_text = theme.nav_text.page_prev;
+            var next_text = theme.nav_text.page_next
+        %>
+        <%- paginator({
+            prev_text: prev_text,
+            next_text: next_text
+        }) %>
+    </nav>
+<% } %>
+```
+除此之外还需要在_config.yml文件中添加分页信息对应的文字。
+```
+nav_text:
+  page_prev: 上一页
+  page_next: 下一页
+```
+
+
+全局，网站变量——site
+site.posts	所有文章	array of post objects
+site.pages	所有分页	array of page objects
+site.categories	所有分类	object，包含了站点全部的分类
+site.tags 所有标签   array，包含了站点全部的标签
+
+页面变量——page
+page.title
+page.date
+page.content
+
+文章（post）与page布局相同，增加
+page.published	如果该文章已发布则为 true	boolean
+page.categories	该文章的所有分类	array of ???
+page.tags	该文章的所有标签	array of ???
+
+page.year

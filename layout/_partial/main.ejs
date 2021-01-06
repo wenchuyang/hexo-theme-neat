@@ -1,7 +1,35 @@
-<main class="neat-main">
-    <% site.posts.each(function(post) { %>
-        <h1><%= post.title %></h1>
-        <%- partial('../post', {post: post}) %>
-    <% }); %>
+<main class="main">
+    <div class="timeline">
+        <% var last
+        page.posts.each(function(post, i){
+            var year = post.date.year();
+        if (last != year){
+            last = year %>
+        <div class="timeline-year">
+            <%= year %>
+        </div>
+        <% } %>
+        <div class="timeline-list">
+            <span class="timeline-date">
+                <%= date(post.date, 'MM/DD') %>
+            </span>
+            <span class="timeline-title">
+                <%= post.title %>
+            </span>
+        </div>
+        <% }) %>
+    </div>
+    <% if (page.total > 1){ %>
+        <nav class="page-nav">
+            <%
+                var prev_text = theme.nav_text.page_prev;
+                var next_text = theme.nav_text.page_next
+            %>
+            <%- paginator({
+                prev_text: prev_text,
+                next_text: next_text
+            }) %>
+        </nav>
+    <% } %>
 </main>
 
