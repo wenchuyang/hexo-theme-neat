@@ -6,16 +6,19 @@
         if (last != year){
             last = year %>
         <div class="timeline-year">
-            <%= year %>
+            <a href="<%- url_for(config.archive_dir + '/' + year) %>"><%= year %></a>
         </div>
         <% } %>
         <div class="timeline-list">
-            <span class="timeline-date">
-                <%= date(post.date, 'MM/DD') %>
-            </span>
-            <span class="timeline-title">
-                <%= post.title %>
-            </span>
+            <a href="<%- url_for(post.path) %>">
+                <%= post.path %>
+                <span class="timeline-date">
+                    <%= date(post.date, 'MM/DD') %>
+                </span>
+                <span class="timeline-title">
+                    <%= post.title %>
+                </span>
+            </a>
         </div>
         <% }) %>
     </div>
