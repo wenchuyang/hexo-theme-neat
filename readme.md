@@ -111,6 +111,7 @@ post.ejs
 现在在main模块里获取到了你所有博客的内容，开始优化。
 
 ## 归档，建立你的时间轴
+
 ### 获取文章的时间，年月日。
 ```
 page.posts.forEach(function(post){
